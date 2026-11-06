@@ -1,0 +1,533 @@
+<!--Engineering Portfolio Website - ps_EDAF.html-->
+
+<!DOCTYPE html>
+<html>
+ 
+
+
+<!--******************HTML FILE HEADER**********************-->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BM EDAF Project</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+
+
+<body>
+    <!--***************TOP BANNER/HEADER SECTION***************-->
+    <header class="top-banner">
+        
+        <!--*****HEADER-LEFT/LOGO*****-->
+        <div class="header-left">
+            <a href="index.html">
+            <img src="Images/Profile/bm-logo.png" alt="BM Logo" class="bm-logo">
+            </a>
+        </div>
+
+        <!--*****HEADER-RIGHT/NAVIGATION BAR*****-->
+        <div class="header-right">
+            <nav class="navbar">
+            <a href="index.html">HOME</a>
+            <a href="projects_software.html" class="active">SOFTWARE</a>
+            <a href="certifications.html">CERTIFICATIONS</a>
+            <a href="aboutME.html">ABOUT</a>
+            </nav>
+        </div>
+        
+    </header>
+
+
+
+    <!--*****SUB-NAVIGATION BAR*****-->
+    <nav class="software-nav">
+        <a href="ps_NPMAT.html">Port-Matrix Automation</a>
+        <a href="ps_EDAF.html" class="active">Data Acquisition Framework</a>
+        <a href="ps_EPWeb.html">Engineering Portfolio Website</a>
+    </nav>
+
+
+
+    <!--********ENGINEERING DATA ACQUISITION FRAMEWORK********-->
+    <br><h1>Engineering Data Aqcuisition Framework</h1><br>
+    
+    <p><b>Project Information: </b>The Engineering Data Acquisition Framework<br> 
+    was developed using Python, to collect, validate and store sensor data<br>
+    such as temperature, pressure, and flow rate. The implemented sensor<br>
+    validation logic can detect and flag measurements that are out of range.<br>
+    The generated CSV file reports are timestamped, formatted, and can be<br>
+    used for further engineering analysis. The modular designed workflow<br>
+    separates input handling, sensor validation, logging, & display functions<br>
+    for improved readability and scalability to the engineer or programmer.
+    </p>
+    
+    
+
+    <!--*********************SOURCE CODE*********************-->
+    <details>
+        <summary>main.py</summary>
+
+        <p>
+            <pre><code>
+                #Engineering Data Acquisition Framework - main.py
+                #Bryan Martinez
+
+                #This software tool logs pressure readings, validates sensor data, 
+                #and stores the results in a CSV file.
+
+
+                #Import the required functions
+
+                from utils import get_float
+                from utils import get_dataInput
+                from validation import validate_data
+                from display_data import get_report
+                from sensor_logger import log_data
+
+
+
+                #1. Call the get_float() function
+                #Obtains Pressure, Temperature, and Flow Rate float inputs
+                pressure = get_float("Enter recorded pressure: ")
+                temperature = get_float("Enter recorded temperature: ")
+                flow_rate = get_float("Enter recorded flow rate: ")
+
+
+
+                #2. Call the get_dataInput() function
+                #Stores timestamp and the input data: pressure, temperature, flow rate
+                dataInput = get_dataInput(pressure, temperature, flow_rate)
+                #print(dataInput)
+
+
+
+                #3. Call the validate_data() function
+                #Determines if the data readings/measurments are within a valid range
+                dataInput = validate_data(dataInput)
+                #print(dataInput)
+
+
+
+                #4. Call the get_report() function
+                #Generates a formatted data report and adds a PASS/FAIL status for each recorded reading
+                get_report(dataInput)
+
+
+
+                #5. Call the log_data() function 
+                #Logs the formatted data report to a CSV file 
+                log_data(dataInput)
+            </code></pre>
+
+        </p>
+    </details>
+    
+    <details>
+        <summary>utils.py</summary>
+
+        <p>
+            <pre><code>
+                #Engineering Data Acquisition Framework - utils.py
+
+                #This module defines reusable functions: get_float() and get_dataInput()
+
+
+
+
+                #Define the get_float() function to validate input, handle errors/exception, and return a float value
+
+                def get_float(prompt):
+                    while True:
+                        try:
+                            value = float(input(prompt))
+                            return value
+                        except ValueError:
+                            print("Invalid number format. Please try again")	
+
+
+
+
+                #Define the get_dataInput() function: will convert the input into a dictionary with nested dictionaries
+                #Adds formatted/corresponding units of measurement
+
+                from datetime import datetime
+
+                def get_dataInput(pressure, temperature, flow_rate):
+                    
+                    #Retrieve date and time
+                    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                    #create the new dictionary
+                    dataInput = {
+                        "Timestamp" : timestamp,
+                        "Pressure_Sensor" : {"Reading" : pressure, "Units" : 'psi'},
+                        "Temperature_Sensor" : {"Reading" : temperature, "Units" : '°C'},
+                        "Flow_Rate_Sensor" : {"Reading" : flow_rate, "Units" : 'kg/s'}
+                    }
+                    return dataInput
+            </code></pre>
+            
+        </p>
+    </details>
+    
+    
+    <details>
+        <summary>validation.py</summary>
+
+        <p>
+            <pre><code>
+                #Engineering Data Acquisition Framework - validation.py
+
+                #This module defines the validate_data() function and specifies the ranges
+                #to validate sensor data accordingly
+
+
+
+                #Specify the valid ranges by assigning minimum and maximum values
+
+                MIN_PRESSURE = 0
+                MAX_PRESSURE = 300
+
+                MIN_TEMPERATURE = -50
+                MAX_TEMPERATURE = 200
+
+                MIN_FLOW_RATE = 0
+                MAX_FLOW_RATE = 10
+
+
+
+
+                #The validate_data() function assigns 'True' to Valid readings
+                #and assigns 'False' to Invalid readings
+
+                def validate_data(dataInput):
+
+                    #Retrieve p,t,f from dataInput dictionary:
+                    pressure = dataInput["Pressure_Sensor"]["Reading"]
+                    temperature = dataInput["Temperature_Sensor"]["Reading"]
+                    flow_rate = dataInput["Flow_Rate_Sensor"]["Reading"]
+
+                    #Validate pressure, add indicator to dictionary
+                    if MIN_PRESSURE <= pressure <= MAX_PRESSURE:
+                        dataInput["Pressure_Sensor"]["Valid"] = True
+                    else:
+                        dataInput["Pressure_Sensor"]["Valid"] = False
+
+                    #Validate temperature, add indicator to dictionary
+                    if MIN_TEMPERATURE <= temperature <= MAX_TEMPERATURE:
+                        dataInput["Temperature_Sensor"]["Valid"] = True
+                    else:
+                        dataInput["Temperature_Sensor"]["Valid"] = False
+
+                    #Validate flow rate, add indicator to dictionary
+                    if MIN_FLOW_RATE <= flow_rate <= MAX_FLOW_RATE:
+                        dataInput["Flow_Rate_Sensor"]["Valid"] = True
+                    else:
+                        dataInput["Flow_Rate_Sensor"]["Valid"] = False
+                    
+                    return dataInput
+    
+        
+            </code></pre>
+                            
+        </p>
+    </details>
+
+    <details>
+        <summary>display_data.py</summary>
+        <p>
+            <pre><code>
+                #Engineering Data Acquisition Framework - display_data.py
+
+                #This module defines the get_report() function
+
+
+
+
+                #The get_report() function generates and displays 
+                #the formatted sensor data input measurement report
+
+                def get_report(dataInput):
+
+                    #Print banner
+                    print("\n============================\n"
+                        "EDAF REPORT\n"
+                        "============================\n")
+
+                    #Print timestamp
+                    timestamp = dataInput["Timestamp"]
+                    print(f"Timestamp: {timestamp}\n")
+
+                    #Print sensor readings, units, and validity for each sensor
+                    for key, value in dataInput.items():
+
+                        #Use an 'if' statement and 'continue' keyword to skip the timestamp key
+                        if key == "Timestamp":
+                            continue
+                        else:
+                            display_key = key.replace("_", " ")
+
+                            reading = value["Reading"]
+                            units = value["Units"]
+                            valid = value["Valid"]
+                            status = "PASS" if valid else "FAIL" 
+                            
+                            #this prints in one line:
+                            #print(f"{key} {reading} {units} {valid}")
+
+                            #Format the output
+                            print(f"{display_key:<25} {reading:<5} {units:<6} {status}")
+                            </code></pre>
+        </p>
+    </details>
+
+    <details>
+        <summary>sensor_logger.py</summary>
+
+        <p>
+            <pre><code>
+                #Engineering Data Acquisition Framework - sensor_logger.py
+
+                #This module defines the log_data() function
+
+
+
+                #Import the 'os' and 'csv' modules
+                import os
+                import csv
+
+                #Assign the CSV file name and header
+                CSV_FILE = "data/sensor_log.csv"
+                CSV_HEADER = [
+                    "Date/Time",
+                    "Pressure (psi)",
+                    "Pressure Status",
+                    "Temperature (°C)",
+                    "Temperature Status",
+                    "Flow Rate (kg/s)",
+                    "Flow Rate Status"
+                ]
+
+
+                #The log_data function accepts the dataInput sensor measurement information and logs it to a CSV file
+
+                def log_data(dataInput):
+
+                    timestamp = dataInput["Timestamp"]
+
+                    pressure = dataInput["Pressure_Sensor"]["Reading"]
+                    pressure_status = dataInput["Pressure_Sensor"]["Valid"]
+                    pressure_status = "PASS" if pressure_status else "FAIL"
+
+                    temperature = dataInput["Temperature_Sensor"]["Reading"]
+                    temperature_status = dataInput["Temperature_Sensor"]["Valid"]
+                    temperature_status = "PASS" if temperature_status else "FAIL"
+
+                    flow_rate = dataInput["Flow_Rate_Sensor"]["Reading"]
+                    flow_rate_status = dataInput["Flow_Rate_Sensor"]["Valid"]
+                    flow_rate_status = "PASS" if flow_rate_status else "FAIL"
+
+                    if not os.path.exists(CSV_FILE) or os.path.getsize(CSV_FILE) == 0:
+                        with open(CSV_FILE, "w", newline="") as file:
+                            writer = csv.writer(file)
+                            writer.writerow(CSV_HEADER)
+                            writer.writerow([timestamp, pressure, pressure_status, 
+                                            temperature, temperature_status, 
+                                            flow_rate, flow_rate_status])
+
+                        print("\nNew CSV File Created\nSensor Data Logged Successfully")   
+
+                    else:
+                        with open(CSV_FILE, "a", newline="") as file:
+                            writer = csv.writer(file)
+                            writer.writerow([timestamp, pressure, pressure_status, 
+                                            temperature, temperature_status, 
+                                            flow_rate, flow_rate_status])
+
+                        print("\nSensor Data Logged Successfully")
+            </code></pre>
+            
+            
+        </p>
+    </details>
+
+
+
+    <!--*******************PROJECT DEMO SECTION*******************-->
+    
+    <!--*****INPUT SECTION*****-->
+    <section class="project-input-section">
+
+        <h2>Project Demo</h2>
+        
+        <div class="project-input-content">
+            
+            <div class="project-input-info">
+                <p>
+                <b><u>INPUT:</u></b><br>
+                The Engineering Data Acquisition Framewrok collects the 
+                recorded pressure, temperature, and flow rate values.
+                The data is then validated, formatted, and logged. 
+                </p>
+
+                <ul>
+                    <li>Pressure: <b>124.1, 124.2, 301.0</b> (psi)</li>
+                    <li>Temperature: <b>81.1, 81.2, 201.0</b> (°C)</li>
+                    <li>Flow Rate: <b>8.1, 8.2, 11.0</b> (kg/s)</li>
+                </ul>
+            </div>
+
+            <div class="project-input-image">
+                <img src="Images/EDAF/input1.png"
+                 alt="EDAF project input">
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!--*****OUTPUT SECTION*****-->
+    <section class="project-output-section">
+        
+        <div class="project-output-content">
+            
+            <div class="project-output-info">
+                <p>
+                <b><u>OUTPUT:</u></b><br>
+                The Engineering Data Acquisition Framework 
+                can display the formatted reports to the
+                terminal and can generate a sensor data CSV file
+                </p>
+
+                <ul>
+                    <li>Prints a formatted sensor data report to the terminal</li>
+                    <li>Prints the CSV file download or update confirmation</li>
+                    <li>Validates every data entry to generate the CSV file</li>
+                </ul> 
+            </div>
+            
+            <div class="project-output-image">
+                <br>
+                <img src="Images/EDAF/output1.png"
+                 alt="EDAF project output1">
+            </div>
+
+        </div>
+
+    </section>
+
+    <br><br>
+
+
+
+    <!--************************FOOTER****************************-->
+    <footer class="footer">
+
+        <!--*****FOOTER - LEFT*****-->
+        <div class="footer-left">
+
+            <div class="footer-contact-item">
+
+                <button class="footer-icon-button" id="phoneButton">
+                    <img src="Images/Icons/phone-icon.png"
+                        alt="Phone"
+                        class="footer-icon">
+                </button>
+
+                <div class="contact-popover" id="phonePopover">
+                    <b>Phone:</b> (210) 291-2638
+                </div>
+            </div>
+
+
+            <div class="footer-contact-item">
+
+                <button class="footer-icon-button" id="emailButton">
+                    <img src="Images/Icons/email-icon.png"
+                        alt="Email"
+                        class="footer-icon">
+                </button>
+
+                <div class="contact-popover" id="emailPopover">
+                    <b>Email:</b> BryanEmc2@gmail.com
+                </div>
+            </div>
+
+
+            <div class="footer-contact-item">
+
+                <button class="footer-icon-button" id="githubButton">
+                    <img src="Images/Icons/github-icon.jpg"
+                        alt="GitHub"
+                        class="footer-icon">
+                </button>
+
+                <div class="contact-popover" id="githubPopover">
+                    <b>Github:</b>
+                    <a href="hhttps://github.com/BM-CPE" target="_blank">
+                        GitHub.com/BM-CPE
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        <!--*****FOOTER - CENTER*****-->
+        <div class="footer-center">
+
+            <p><a href="projects_software.html"><u>Return to Software Projects</u></a></p>
+            
+            <p><a href="index.html"><u>Home</u></a></p>
+
+        </div>
+
+
+        <!--*****FOOTER - RIGHT*****-->
+        <div class="footer-right">
+
+            <p>Engineering Portfolio Website</p>
+
+            <p><strong>&copy; 2026 Bryan Martinez</strong></p>
+
+        </div>
+
+    </footer>
+
+
+
+    <!--*****JAVASCRIPT IMPLEMENTATION - CONTACT INFO ICONS*****-->
+    <script>
+        const phoneButton = document.getElementById("phoneButton");
+        const phonePopover = document.getElementById("phonePopover");
+
+        const emailButton = document.getElementById("emailButton");
+        const emailPopover = document.getElementById("emailPopover");
+
+        const githubButton = document.getElementById("githubButton");
+        const githubPopover = document.getElementById("githubPopover");
+
+        phoneButton.addEventListener("click", function () {
+            phonePopover.style.display =
+                phonePopover.style.display === "block"
+                    ? "none"
+                    : "block";
+        });
+
+        emailButton.addEventListener("click", function () {
+            emailPopover.style.display =
+                emailPopover.style.display === "block"
+                    ? "none"
+                    : "block";
+        });
+
+        githubButton.addEventListener("click", function () {
+            githubPopover.style.display =
+                githubPopover.style.display === "block"
+                    ? "none"
+                    : "block";
+        });
+    </script>
+    
+</body>

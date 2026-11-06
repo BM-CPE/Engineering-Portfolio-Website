@@ -1,0 +1,1135 @@
+/* Engineering Portfolio Website - styles.css*/
+
+
+
+
+/* ==================== Global Settings ==================== */
+
+body {
+    background-color: #d2e6f8;
+    font-family: "Segoe UI", Arial, sans-serif;
+    margin: 0;
+    text-align: center;
+    color: #333;
+}
+
+img {
+    width: 100px;
+    border-radius: 15px;
+}
+
+/* ===== Headings ===== */
+
+h1 {
+    font-size: 34px;
+    color: #1e3a5f;
+    margin-bottom: 5px;
+}
+
+
+h2 {
+    color: #1e3a5f;
+    margin-top: 40px;
+}
+
+h3 {
+    color: #4f81bd;
+    text-decoration: underline;
+}
+
+h4 {
+    color: #1e3a5f;
+    text-decoration: underline;
+}
+
+hr {
+    border: none;
+    height: 2px;
+    background-color: #4f81bd;
+    width: 85%;
+    margin: 30px auto;
+}
+
+
+/* =================== Global Banner Settings =================== */
+.top-banner {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 7px 20px;
+
+}
+
+.header-left{
+    width: 330px;
+}
+.header-right {
+    width: 330px;
+}
+
+.header-center {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+}
+
+.subtitle {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 18px;
+    color: #4f81bd;
+    font-weight: 300;
+}
+
+.bm-logo {
+    width: 60px;
+    border-radius: 50%;
+    margin-left: -150px;
+}
+
+.profile-pic {
+    width: 100px;
+    border-radius: 50%;
+}
+
+.hero {
+    background-color: white;
+    width: 60%;
+    margin: 30px auto;
+    padding: 20px;
+
+    border-radius: 15px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.08);
+}
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 5px;
+    color: navy;
+}
+
+/* ================ GLOBAL NAVIGATION BAR SETTINGS ================ */
+
+.navbar {
+    display: flex;
+    gap: 7px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #1e3a5f;
+    font-weight: 600;
+    border-top: 2px solid transparent;
+
+    transition: border-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #4f81bd;
+    border-top-color: #4f81bd;
+}
+
+.navbar a.active {
+    border-top: 2px solid #4f81bd;
+}
+
+/* ================= GLOBAL FOOTER SETTINGS ================== */
+
+.footer {
+    background-color: #1e3a5f;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 10px 30px;
+    justify-content: space-between; 
+}
+
+.footer-left{
+    width: 300px;
+}
+.footer-right {
+    width: 300px;
+}
+
+.footer-center {
+    text-align: center;
+}
+
+.footer p {
+    margin: 8px 0;
+}
+
+.footer a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: #c8e4ff;
+    text-decoration: none;
+}
+
+.footer-left img {
+    width: 35px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.footer-left a {
+    padding: 5px;
+}
+
+.footer-left img:hover {
+   border: 2px solid #c8e4ff;
+
+}
+
+.footer-center img {
+    width: 35px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+/* ===== ICONS ===== */
+
+.footer-contact-item {
+    position: relative;
+    display: inline-block;
+}
+
+.footer-icon-button {
+    border: none;
+    background: none;
+    padding: 0;
+
+    cursor: pointer;
+}
+
+.contact-popover {
+    display: none;
+    position: absolute;
+    bottom: 45px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    color: #1e3a5f;
+    padding: 10px 16px;
+    border-radius: 8px;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+}
+
+.contact-popover a {
+    color: #1e3a5f;
+}
+
+.contact-popover a:hover {
+    color: #021022;
+}
+
+/* ===== POPOVER ARROW ===== */
+
+.contact-popover::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 8px;
+    border-style: solid;
+    border-color:
+        white
+        transparent
+        transparent
+        transparent;
+}
+
+
+
+
+/* ======================= HOMEPAGE ======================= */
+
+/* === Secondary Navigation Bar ===*/
+
+.second-nav {
+    background-color: #1e3a5f;
+    display: flex;
+    justify-content: right;
+    padding: 12px 20px;
+}
+
+.second-nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    border-top: 2px solid transparent;
+    transition: border-color 0.3s ease,
+    color 0.3s ease;
+    margin-right: 10px;
+}
+
+.second-nav a:hover {
+    color: #c8e4ff;
+    border-top-color: #c8e4ff;
+}
+
+.second-nav a.active {
+    border-top: 2px solid white;
+}
+
+.contact-info a {
+    border: 2px solid white;
+    padding: 1px 1px;
+}
+
+.contact-info a:hover {
+    color: #c8e4ff;
+    border: 2px solid #c8e4ff;
+}
+
+/* == Button == */
+
+.contact-button {
+    color: #1e3a5f;
+    text-decoration: none;
+    font-weight: 500;
+    transition: border-color 0.3s ease,
+    color 0.3s ease;
+    margin-right: 10px;
+}
+
+.contact-button {
+    border: 2px solid black;
+    padding: 1px 1px;
+}
+
+.contact-button:hover {
+    color: #4f81bd;
+    border: 2px solid #c8e4ff;
+}
+
+/* Button text box */
+
+.contact-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.45);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.contact-box {
+    position: relative;
+    width: 350px;
+    padding: 35px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    text-align: center;
+}
+
+.contact-box h2 {
+    color: #1e3a5f;
+}
+
+.contact-box a {
+    color: #1e3a5f;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-box a:hover {
+    color: #4f81bd;
+}
+
+.contact-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    border: none;
+    background: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* == Homepage Main Section == */
+
+main {
+    margin: 0px;
+}
+
+.home-main {
+    min-height: calc(100vh - 100px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.30),
+            rgba(0, 0, 0, 0.30)
+        ),
+        url("Images/Homepage/nasa.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.home-hero {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.home-profile-pic {
+    width: 130px;
+    border-radius: 50%;
+}
+
+.home-hero-text {
+    text-align: left;
+}
+
+.home-hero-text h1 {
+    margin: 0;
+    font-size: 48px;
+    color: white
+}
+
+.home-subtitle {
+    margin-top: 6px;
+    margin-bottom: 0;
+
+    font-size: 20px;
+    color: white;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+    letter-spacing: 2px;
+}
+
+/* === Intro Section ===*/
+
+.intro-section {
+    padding: 60px 8%;
+}
+
+.intro-section h2 {
+    color: #1e3a5f;
+    font-size: 32px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+.intro-content {
+    display: grid;
+    grid-template-columns: 3fr 4fr;
+    gap: 100px;
+    align-items: center;
+}
+
+.intro-text {
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.intro-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+
+    border-radius: 0px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+/* ==== Experience Section ==== */
+
+.experience-section {
+    background-color: white;
+    padding: 60px 8%;
+}
+
+.experience-section img {
+    width: 50%;
+}
+
+.experience-section a {
+    text-decoration: none;
+    color: #4f81bd;
+}
+
+.experience-section a:hover {
+    color: #88c2f4;
+}
+
+.experience-section h2 {
+    color: #1e3a5f;
+    font-size: 32px;
+}
+
+.experience-item {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 50px;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.experience-card {
+    min-height: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px;
+    background-color: #fafafa;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.experience-card h3 {
+    color: #1e3a5f;
+    font-size: 26px;
+}
+
+.experience-info h3 {
+    color: #1e3a5f;
+    margin-bottom: 5px;
+    text-decoration: none;
+    text-underline-offset: 5px;
+}
+
+.experience-info p {
+    line-height: 1.7;
+}
+
+.experience-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0px 10px 22px rgba(0,0,0,0.15);
+}
+
+.details {
+    text-align: center;
+}
+
+.details ul {
+    display: inline-block;
+    text-align: left;
+}
+
+/* ===== Home ENGR-Projects ===== */
+
+.engineering-projects {
+    padding: 60px 8% 105px;
+}
+
+.engineering-projects h2 {
+    color: #1e3a5f;
+    font-size: 32px;
+}
+
+.homepage-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+.home-card {
+    width: 350px;
+    text-align: center;
+    background-color: #fafafa;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.home-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.15);
+}
+.home-card a {
+    display: block;
+    text-decoration: none;
+    color: #1e3a5f;
+}
+
+.home-card a:hover {
+    color: #4f81bd;
+}
+
+.home-card h2 {
+    font-size: 20px;
+    margin: 10px 0 0 0;
+}
+.home-card:hover h2 {
+    color: #4f81bd;
+}
+
+.card-icon {
+    width: 130px;
+    height: 110px;
+    margin-bottom: 1px;
+    border-radius: 0;
+}
+
+/* ========== Resource Section ========== */
+
+.resource-section {
+    background-color: white;
+    padding: 10px 0;
+}
+
+.resource-card {
+    width: 350px;
+    text-align: center;
+    margin: 0 auto 30px auto;
+    padding: 15px 30px;
+    background-color: #c8e4ff;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.resource-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 8px 18px rgba(0,0,0,0.15);
+}
+
+.resource-card:hover h3 {
+color: #4f81bd;
+}
+
+.resource-card a {
+    display: block;
+    text-decoration: none;
+    color: navy;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.resource-icon {
+    width: 60px;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 0;
+}
+
+.resource-card h3 {
+    margin: 0;
+    font-size: 22px;
+    text-decoration: none;
+    color: #1e3a5f;
+}
+
+.icon-container {
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+/* ======================== Software Projects Page ========================*/
+
+/* === Software Nav === */
+
+.software-nav {
+    background-color: #1e3a5f;
+    display: flex;
+    justify-content: right;
+    padding: 12px 20px;
+    gap: 20px;
+}
+
+.software-nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    border-top: 2px solid transparent;
+    transition: border-color 0.3s ease,
+    color 0.3s ease;
+    margin-right: 10px;
+}
+
+.software-nav a:hover {
+    color: #c8e4ff;
+    border-top-color: #c8e4ff;
+}
+.software-nav a.active {
+    border-top: 2px solid white;
+}
+
+/* ===== SOFTWARE PROJECTS CARDS ===== */
+
+details {
+    text-align: left;
+}
+
+summary {
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #1e3a5f;
+}
+
+.project-description {
+    text-align: left;
+    font-size: 18px;
+}
+
+details,
+.certification {
+    background-color: white;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 12px;
+    box-shadow: 0px 3px 10px rgba(0,0,0,0.08);
+    width: 85%;
+}
+
+details:hover {
+    transform: translateY(-3px);
+    transition: 0.3s;
+}
+
+.project-card {
+    background-color: white;
+    width: 85%;
+    margin: 30px auto;
+    padding: 25px; 
+    border-radius: 15px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.10);
+    text-align: left;
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.15);
+}
+.project-card a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;  
+}
+
+ .project-card:hover h2 {
+    color: #4f81bd;
+} 
+
+.project-card p {
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.project-info {
+    width: 70%;
+    text-align: left;
+}
+
+.project-image {
+    width: 60%;
+    text-align: center;
+}
+
+.project-image img {
+    width: 180px;
+    border-radius: 10px;
+}
+
+/*============ SOFTWARE PROJECTS - INPUT/OUTPUT ===========*/
+
+/* INPUT */
+
+.project-input-section {
+    padding: 60px 8%;
+}
+
+.project-input-section h2 {
+    color: #1e3a5f;
+    margin-bottom: 30px;
+}
+
+.project-input-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+
+    gap: 50px;
+    align-items: start;
+}
+
+.project-input-info {
+    text-align: left;
+    line-height: 1.7;
+}
+
+.project-input-image img {
+    width: 100%;
+    height: auto;
+
+    display: block;
+
+    border-radius: 10px;
+
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/*OUTPUT*/
+
+.project-output-section {
+    padding: 60px 8%;
+}
+
+.project-output-section h2 {
+    color: #1e3a5f;
+    margin-bottom: 30px;
+}
+
+.project-output-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+
+    gap: 50px;
+    align-items: start;
+}
+
+.project-output-info {
+    text-align: left;
+    line-height: 1.7;
+}
+
+.project-output-image img {
+    width: 100%;
+    height: auto;
+
+    display: block;
+
+    border-radius: 10px;
+
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.matrix-display img{
+    width: 70%;
+    max-width: 1000px;
+    height: auto;
+
+    display: block;
+    margin: 30px auto;
+}
+
+
+
+
+/* ========================== Certifications Nav ========================== */
+.certs-nav {
+    background-color: #1e3a5f;
+    display: flex;
+    justify-content: right;
+    padding: 12px 20px;
+    gap: 18px;
+}
+
+.certs-nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    border-top: 2px solid transparent;
+    transition: border-color 0.3s ease,
+    color 0.3s ease;
+    margin-right: 10px;
+}
+
+.certs-nav a:hover {
+    color: #c8e4ff;
+    border-top-color: #c8e4ff;
+}
+.certs-nav a.active {
+    border-top: 2px solid white;
+}
+
+/* ========================== Certifications ========================== */
+
+.certification {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.certification-info {
+    width: 60%;
+    text-align: left;
+}
+
+.certification-image {
+    width: 40%;
+    text-align: center;
+}
+
+.certification-image img {
+    width: 300px;
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
+}
+
+.certification-image img:hover {
+    transform: translateY(-5px) scale(1.15);
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
+}
+
+.certs-link {
+    color: #4f81bd;
+    text-decoration: none;
+    transition: color 0.3s ease,
+                text-shadow 0.3s ease;
+}
+
+.certs-link:hover {
+    color: #88c2f4;
+}
+
+.education-logo {
+    width: 220px;
+    height: auto;
+}
+
+/* ======================== GRADES TABLE ======================== */
+
+.grades-section {
+    padding: 60px 8%;
+}
+
+.grades-section h2 {
+    color: #1e3a5f;
+    margin-bottom: 30px;
+}
+
+.grades-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+.grades-table th,
+.grades-table td {
+    padding: 14px 20px;
+    text-align: left;
+    border-bottom: 1px solid #dbeeff;
+}
+
+.grades-table th {
+    background-color: #1e3a5f;
+    color: white;
+}
+
+.grades-table tr:hover {
+    background-color: #f4f9ff;
+}
+
+.grades-table th:nth-child(1) {
+    width: 35%;
+}
+
+.grades-table th:nth-child(2) {
+    width: 45%;
+}
+
+.grades-table th:nth-child(3) {
+    width: 20%;
+}
+
+/* ===================== CERTIFICATIONS TABLE ===================== */
+
+.cert-table-section {
+    padding: 60px 8%;
+}
+
+.cert-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+.cert-table th,
+.cert-table td {
+    padding: 14px 20px;
+    text-align: left;
+    border-bottom: 1px solid #dbeeff;
+}
+
+.cert-table th {
+    background-color: #1e3a5f;
+    color: white;
+}
+
+.cert-table tr:hover {
+    background-color: #f4f9ff;
+}
+
+.cert-table th:nth-child(1) {
+    width: 40%;
+}
+
+.cert-table th:nth-child(2) {
+    width: 60%;
+}
+
+/* === Certificate display === */
+
+.certificate-display {
+    width: 70%;
+    max-width: 1000px;
+    height: auto;
+
+    display: block;
+    margin: 30px auto;
+}
+
+
+
+
+/* ======================= About ME Section ======================= */
+
+.about-hero {
+    width: 100%;
+    min-height: 80vh;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.about-panel {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.about-panel-left {
+    background-image: url("Images/About/pic-telescope.jpg");
+}
+
+.about-panel-center {
+    background-image: url("Images/About/pic-rocket.jpg");
+}
+
+.about-panel-right {
+    background-image: url("Images/About/pic-swri.jpg");
+}
+
+/* ===== Timeline Section ===== */
+
+.timeline-section {
+    padding: 70px 8%;
+    background-color: white;
+}
+
+.timeline-section h2 {
+    text-align: center;
+    color: #1e3a5f;
+    font-size: 34px;
+    margin-bottom: 50px;
+}
+
+.timeline {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Vertical center line */
+
+.timeline::after {
+    content: "";
+    position: absolute;
+    width: 3px;
+    background-color: #1e3a5f;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 20px 45px;
+    box-sizing: border-box;
+}
+
+.timeline-item.left {
+    left: 0;
+}
+
+.timeline-item.right {
+    left: 50%;
+}
+
+/* === Timeline Dots === */
+
+.timeline-item::after {
+    content: "";
+    position: absolute;
+    top: 40px;
+    width: 16px;
+    height: 16px;
+    background-color: white;
+    border: 3px solid #1e3a5f;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.timeline-item.left::after {
+    right: -11px;
+}
+
+.timeline-item.right::after {
+    left: -11px;
+}
+
+/* === Timeline Cards/Content === */
+
+.timeline-content {
+    background-color: #fafafa;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.10);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.16);
+}
+
+/* === Timeline Images/Color === */
+
+.timeline-content img {
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
+
+.timeline-content h3 {
+    color: #1e3a5f;
+    margin-top: 0;
+}
+
+.timeline-date {
+    color: #4f81bd;
+    font-weight: 600;
+}
+

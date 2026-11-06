@@ -1,0 +1,380 @@
+<!--Engineering Portfolio Website - index.html-->
+<!--Bryan Martinez-->
+
+<!DOCTYPE html>
+<html>
+
+
+
+
+<!--******************HTML FILE HEADER**********************-->   
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BM ENGR Portfolio Website</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+   
+
+  
+<body>
+    
+    <!--***************TOP BANNER/HEADER SECTION***************-->
+    <header class="top-banner">              
+        
+        <!--*****HEADER-LEFT/LOGO*****-->
+        <div class="header-left">
+            <a href="index.html">
+            <img src="Images/Profile/bm-logo.png" alt="BM Logo" class="bm-logo">
+            </a>       
+        </div>
+
+
+        <!--*****HEADER-RIGHT/NAVIGATION BAR*****-->
+        <div class="header-right">          
+            <nav class="navbar">
+            <a href="index.html" class="active">HOME</a>
+            <a href="projects_software.html">SOFTWARE</a> 
+            <a href="certifications.html">CERTIFICATIONS</a>
+            <a href="aboutME.html">ABOUT</a>
+            </nav>
+        </div> 
+    </header>
+
+
+    
+    <!--*****SUB-NAVIGATION BAR*****-->
+    <nav class="second-nav">       
+        <button class="contact-button" id="contactButton">
+            <b>Contact Information</b>
+        </button>    
+    </nav>
+    
+
+
+    <!--*****CONTACT INFO BUTTON*****-->
+    <div class="contact-modal" id="contactModal">
+        <div class="contact-box">
+            <button class="contact-close" id="contactClose">
+                &times;
+            </button>
+
+            <h2>Contact Information</h2>
+
+            <p>
+                <b>Phone:</b> (210) 291-2638 
+            </p>
+
+            <p>
+                <b>Email:</b> BryanEmc2@gmail.com           
+            </p>
+
+            <p>
+                <b>GitHub:</b>
+                <a href="https://github.com/BM-CPE" target="_blank">
+                    GitHub.com/BM-CPE
+                </a>
+            </p>
+        </div>
+    </div>
+
+
+    
+    <!--***************HOME MAIN LANDING PAGE***************-->
+    <main class="home-main">
+        <section class="home-hero">
+            <img src="images/Profile/profile-pic.png"
+                alt="Bryan Martinez"
+                class="home-profile-pic">
+
+            <div class="home-hero-text">
+                <h1>Bryan Martinez</h1>
+                <p class="home-subtitle">COMPUTER ENGINEER</p>
+            </div>
+        </section>
+    </main>
+
+
+    
+    <!--***************INTRODUCTION SECTION***************-->
+    <section class="intro-section">
+        <div class="intro-content">
+
+            <div class="intro-text">
+                <p>
+                    <h2>Engineering Introduction</h2> My passion for engineering began to develop at an early age. 
+                    Before reaching 1st grade, not only was I introduced 
+                    to the concept of time and multiplaction, but I also understood  
+                    and enjoyed it. Since then, mathematics became my strongest and 
+                    favorite subject throughout my academic studies.
+                    During my senior year at high school, as I approached graduation,
+                    I decided to pursue a degree in Computer Engineering, mainly due to my 
+                    strength in mathematics, followed by my interest in computers, 
+                    and my interest in learning how technology is fundamentally designed.
+                </p>
+
+                <p>
+                    During college, I developed an impactful passion for science. 
+                    This newly-found passion motivated me to enroll into a university,
+                    helped me complete my degree courses successfully,
+                    and led me to develop a new goal in life:<br> 
+                    <b><i>to pursue a career in SPACE ENGINEERING.</i></b>
+
+                </p>
+            </div>
+
+            <div class="intro-image">
+                <img src="Images/Homepage/intro-pic.jpg" alt="Intro image">
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <!--******************EXPERIENCE SECTION**********************-->   
+    <section class="experience-section">
+
+        <h2>Engineering Experience</h2>
+
+        <!--*****OPTUM*****-->
+        <div class="experience-item">
+            <a href="details-optum.html">
+            <div class="experience-card"> 
+                <img src="Images/Homepage/optum-logo.png">
+            </div>
+            </a>
+
+            <div class="experience-info">
+                <h3><i><u>NETWORK ENGINEER</u></i> - Mergers & Acquisitions</h3>
+                -Design, manage, and integrate enterprise healthcare networks
+                <p>
+                    Dates: <b>2/13/23 - PRESENT</b><br>
+                    Location: <b>San Antonio, TX</b><br>
+                    <a href="details-optum.html"><b>View Role Description Details</b></a>
+                </p>            
+            </div>
+        </div>
+
+        <!--*****CISCO*****-->
+        <div class="experience-item">
+            <a href="details-cisco.html">
+            <div class="experience-card">
+                <img src="Images/Homepage/cisco-logo.png"> 
+            </div>
+            </a>
+
+            <div class="experience-info">
+                <h3><i><u>NETWORK ENGINEER</u></i> - Home Depot Non-Store Network Refresh</h3>
+                -Configure, deploy, and upgrade network infrastructure for Home Depot distribution centers and data centers
+                <p>
+                    Dates: <b>3/3/25 - 3/6/26</b><br>
+                    Location: <b>San Antonio, TX</b><br>
+                    <a href="details-cisco.html"><b>View Role Description Details</b></a>
+                </p>                    
+            </div>
+        </div>
+
+    </section>
+
+
+
+     <!--*************ENGINEERING PROJECTS SECTION*****************-->   
+    <section class="engineering-projects">
+        
+        <h2>Engineering Projects</h2> 
+            
+        <div class="homepage-cards">
+
+            <div class="home-card">
+                <a href="projects_software.html">
+                    <img src="Images/Icons/software-icon.png"
+                        alt="Software Development"
+                        class="card-icon">
+
+                    <h2>Software Development<br>&<br>Computer Programming</h2>
+                </a>
+            </div>
+
+            <!--<div class="home-card">
+                <a href="projects_avionics.html">
+                    <img src="images/rocket-icon.png"
+                        alt="Avionics"
+                        class="card-icon">
+
+                    <h2>Avionics<br>Controls &<br>Instrumentation</h2>
+                </a>
+            </div>-->
+                
+            </div>
+    </section>  
+
+    
+
+     <!--******************RESOURCE CARD SECTION**********************-->   
+    <section class="resource-section"><br>
+
+        <!--*****CERTIFICATIONS*****-->
+        <div class="resource-card">
+            <a href="certifications.html">
+                <div class="icon-container">
+                    <img src="Images/Icons/cert-icon.png" alt="Certifications" class="resource-icon">
+                </div>
+                
+                <h3>Certifications</h3>
+            </a>    
+        </div>
+        
+        <!--*****ENGINEERING PORTFOLIO PDF*****-->
+        <div class="resource-card">
+            <a href="BM-Portfolio.pdf" target="_blank">
+                <div class="icon-container">
+                    <img src="Images/Icons/portfolio-icon.png" alt="Engineering Portfolio" class="resource-icon">
+                </div>
+                
+                <h3>Engineering Portfolio</h3>
+            </a>
+        </div>
+        
+        <!--*****RESUME PDF*****-->
+        <div class="resource-card">
+            <a href="BM-Resume.pdf" target="_blank">
+                <div class="icon-container">
+                    <img src="Images/Icons/resume-icon.png" alt="Resume" class="resource-icon">
+                </div>
+                
+                <h3>Resume</h3>
+            </a>
+        </div>
+        
+        <!--*****ABOUT ME*****-->
+        <div class="resource-card">
+            <a href="aboutME.html">
+                <div class="icon-container">
+                    <img src="Images/Icons/info-icon.png" alt="About" class="resource-icon">
+                </div>
+                
+                <h3>About</h3>
+            </a>
+        </div><br>
+
+    </section>
+    
+
+
+    <!--*****JAVASCRIPT IMPLEMENTATION - CONTACT INFO BUTTON*****-->
+    <script>
+        const contactButton = document.getElementById("contactButton");
+        const contactModal = document.getElementById("contactModal");
+        const contactClose = document.getElementById("contactClose");
+
+        contactButton.addEventListener("click", function () {
+            contactModal.style.display = "flex";
+        });
+
+        contactClose.addEventListener("click", function () {
+            contactModal.style.display = "none";
+        });
+    </script>
+    <!--**********************************************************-->
+
+
+
+    <!--************************FOOTER****************************-->
+    <footer class="footer">
+
+        <!--*****FOOTER - LEFT*****-->
+        <div class="footer-left">
+
+            <div class="footer-contact-item">
+                <button class="footer-icon-button" id="phoneButton">
+                    <img src="Images/Icons/phone-icon.png"
+                        alt="Phone"
+                        class="footer-icon">
+                </button>
+
+                <div class="contact-popover" id="phonePopover">
+                    <b>Phone:</b> (210) 291-2638
+                </div>
+            </div>
+
+
+            <div class="footer-contact-item">
+                <button class="footer-icon-button" id="emailButton">
+                    <img src="Images/Icons/email-icon.png"
+                        alt="Email"
+                        class="footer-icon">
+                </button>
+
+                <div class="contact-popover" id="emailPopover">
+                    <b>Email:</b> BryanEmc2@gmail.com
+                </div>
+            </div>
+
+
+            <div class="footer-contact-item">
+                <button class="footer-icon-button" id="githubButton">
+                    <img src="Images/Icons/github-icon.jpg"
+                        alt="GitHub"
+                        class="footer-icon">
+                </button>
+
+                <div class="contact-popover" id="githubPopover">
+                    <b>GitHub:</b> 
+                    <a href="https://github.com/BM-CPE" target="_blank">
+                        GitHub.com/BM-CPE
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+
+
+        <!--*****FOOTER - RIGHT*****-->
+        <div class="footer-right">
+            <p>Engineering Portfolio Website</p>
+            <p><strong>&copy; 2026 Bryan Martinez</strong></p>
+        </div>
+
+    </footer>
+
+
+
+    <!--*****JAVASCRIPT IMPLEMENTATION - CONTACT INFO ICONS*****-->
+    <script>
+        const phoneButton = document.getElementById("phoneButton");
+        const phonePopover = document.getElementById("phonePopover");
+
+        const emailButton = document.getElementById("emailButton");
+        const emailPopover = document.getElementById("emailPopover");
+
+        const githubButton = document.getElementById("githubButton");
+        const githubPopover = document.getElementById("githubPopover");
+
+        phoneButton.addEventListener("click", function () {
+            phonePopover.style.display =
+                phonePopover.style.display === "block"
+                    ? "none"
+                    : "block";
+        });
+
+        emailButton.addEventListener("click", function () {
+            emailPopover.style.display =
+                emailPopover.style.display === "block"
+                    ? "none"
+                    : "block";
+        });
+
+        githubButton.addEventListener("click", function () {
+            githubPopover.style.display =
+                githubPopover.style.display === "block"
+                    ? "none"
+                    : "block";
+        });
+    </script>
+    <!--**********************************************************-->
+    
+</body>
+
+</html>
